@@ -1,6 +1,6 @@
 /*递归实现二叉树的先序、后序、中序遍历*/
-#include<stdio.h>
-#include<malloc.h>
+#include <stdio.h>
+#include <malloc.h>
 typedef struct BTNode{
 	char data;
 	struct BTNode *lchild,*rchild;
@@ -22,16 +22,6 @@ BiTree CreateBiTree(){
 	return T;
 }
 
-void Inorderf(BiTree T) 
-{ 
-	if(T)
-	{
-		Inorderf(T->lchild);
-		printf("%3c",T->data);
-		Inorderf(T->rchild);
-	}
-}
-
 void Preorderf(BiTree T) 
 { 
 	if(T)
@@ -42,12 +32,22 @@ void Preorderf(BiTree T)
 	}
 }
 
+void Inorderf(BiTree T) 
+{ 
+	if(T)
+	{
+		Inorderf(T->lchild);
+		printf("%3c",T->data);
+		Inorderf(T->rchild);
+	}
+}
+
 void Postorderf(BiTree T) 
 { 
 	if(T)
 	{
-		Preorderf(T->lchild);
-		Preorderf(T->rchild);
+		Postorderf(T->lchild);
+		Postorderf(T->rchild);
 		printf("%3c",T->data);
 	}
 }

@@ -1,6 +1,6 @@
 /*非递归方式实现二叉树的先序、中序、后序遍历*/
-#include<stdio.h>
-#include<malloc.h>
+#include <stdio.h>
+#include <malloc.h>
 
 typedef struct BTNode{
 	char data;
